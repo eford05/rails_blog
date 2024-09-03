@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    # Fetch a single article by id
+    # Find a single article by id
     @article = Article.find(params[:id])
   end
 end
