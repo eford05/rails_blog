@@ -8,4 +8,19 @@ class ArticlesController < ApplicationController
     # Find a single article by id
     @article = Article.find(params[:id])
   end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(title: "...", body: "...")
+
+    # After article creation redirect back to article
+    if @article.save
+      redirect_to @article
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 end
